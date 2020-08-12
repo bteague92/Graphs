@@ -3,6 +3,7 @@ Simple graph implementation
 """
 from util import Stack, Queue  # These may come in handy
 
+
 class Graph:
 
     """Represent a graph as a dictionary of vertices mapping labels to edges."""
@@ -14,14 +15,12 @@ class Graph:
         """
         Add a vertex to the graph.
         """
-
         self.vertices[vertex_id] = set()
 
     def add_edge(self, v1, v2):
         """
         Add a directed edge to the graph.
         """
-
         if v1 in self.vertices and v2 in self.vertices:
             self.vertices[v1].add(v2)
         else:
@@ -31,7 +30,6 @@ class Graph:
         """
         Get all neighbors (edges) of a vertex.
         """
-
         return self.vertices[vertex_id]
 
     def bft(self, starting_vertex):
@@ -39,6 +37,14 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
+        #Create empty queue
+        #Add starting vert
+        #Create set for visited
+        #while queue is not empty
+            #dequeue vert
+            #if vert not visited
+                #mark as visited
+                #add all neighbors to queue
 
         q = Queue()
         # store starting vertex
@@ -66,6 +72,14 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
+        #Create empty stack
+        #Add starting vert
+        #Create set for visited
+        #while stack is not empty
+            #remove vert
+            #if vert not visited
+                #mark as visited
+                #add all neighbors to stack
 
         s = Stack()
         # add starting vertex to the stack
@@ -80,7 +94,7 @@ class Graph:
             if v not in visited:
                 # add it to visited
                 visited.add(v)
-                # print(v)
+                print(v)
 
                 # add the neighbors to the stack
                 neighbors = self.get_neighbors(v)
@@ -93,7 +107,6 @@ class Graph:
         beginning from starting_vertex.
         This should be done using recursion.
         """
-
         # create visited set if instantiated at None
         if visited is None:
             visited = set()
@@ -114,10 +127,21 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
+        #Create empty queue and enqueue A PATH To the starting vert id
+        #Create a set for visited
+        #while queue is not empty
+            #dequeue the first PATH
+            #grab the last vert from the PATh
+            #if vert not visited
+                #CHECK IF ITS THE TARGET
+                    #if so return path
+                #Mark it as visited
+                #Add the path to its neighbors to the back of the queue
+                    #copy the path
+                    #APPEND THE NEIGHBOR TO THE BACK
 
         visited = set()
         q = Queue()
-
         # add starting vertex to the queue as a list
         q.enqueue([starting_vertex])
 
@@ -147,7 +171,6 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
-
         s = Stack()
         s.push([starting_vertex])
         visited = set()
@@ -179,7 +202,6 @@ class Graph:
         depth-first order.
         This should be done using recursion.
         """
-
         if path == []:
             path = [starting_vertex]
 
