@@ -33,6 +33,32 @@ class SocialGraph:
         self.users[self.last_id] = User(name)
         self.friendships[self.last_id] = set()
 
+    # def populate_graph(self, num_users, avg_friendships):
+    #     # Reset graph
+    #     self.last_id = 0
+    #     self.users = {}
+    #     self.friendships = {}
+
+    #     # Add users
+    #     for i in range(0, num_users):
+    #         self.add_user(f"User {i}")
+    #     # !!!! IMPLEMENT ME
+
+    #     target_friendships = (num_users * avg_friendships)
+    #     total_friendships = 0
+    #     collisions = 0
+
+    #     while total_friendships < target_friendships:
+    #         user_id = random.randint(1, self.last_id)
+    #         friend_id = random.randint(1, self.last_id)
+
+    #         if self.add_friendship(user_id, friend_id):
+    #             total_friendships += 2
+    #         else:
+    #             collisions += 1
+        
+    #     print(f"Collisions: {collisions}")
+
     def populate_graph(self, num_users, avg_friendships):
         """
         Takes a number of users and an average number of friendships
